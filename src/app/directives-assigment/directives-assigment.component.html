@@ -1,0 +1,13 @@
+<p>Assignment Component</p>
+
+<button class="btn btn-primary"
+(click)="onToogle()">Dispal details</button>
+
+<ng-container *ngIf="toogleStatus;">
+    <p>Secret password = 'tuna'</p>
+</ng-container>
+
+<p *ngFor="let log of logs"
+    [ngStyle]="{backgroundColor: log >= 5? 'blue' : 'transparent'}"
+    [ngClass]="{textColor: log >= 5}">  
+{{ log }}</p>

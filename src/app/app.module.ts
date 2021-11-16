@@ -5,14 +5,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { ServerComponent } from './server/server.component';
 import { ServersComponent } from './servers/servers.component';
-import { UserActionComponent } from './user-action/user-action.component';
+import { DirectivesAssigmentComponent } from './directives-assigment/directives-assigment.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ServerComponent,
     ServersComponent,
-    UserActionComponent
+    DirectivesAssigmentComponent,
   ],
   imports: [
     BrowserModule,
