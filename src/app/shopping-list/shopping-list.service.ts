@@ -9,19 +9,17 @@ export class ShoppingListService {
     new Ingredient("Tomatoes", 10)
   ];
 
+  getIngredients() {
+    return this.ingredients.slice(); // when working on getIngredients() array make sure to subscribe to original array
+  }
+
   addIngredient(ingredient: Ingredient) {
     this.ingredients.push(ingredient);
     this.ingredientsChanged.emit(this.ingredients.slice());
-  }
-
-  getIngredients() {
-    return this.ingredients.slice();
   }
 
   addIngredients(ingredients: Ingredient[]) {
     this.ingredients.push(...ingredients);
     this.ingredientsChanged.emit(this.ingredients.slice());
   }
-
-
 }
