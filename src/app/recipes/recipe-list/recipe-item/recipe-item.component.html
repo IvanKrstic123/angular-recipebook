@@ -1,5 +1,8 @@
-<a href="#" (click)="onSelected()">
-  <div class="card" style="width: 15rem">
+<a
+style="cursor: pointer"
+[routerLink]="[index + 1]"
+>
+  <div class="card" routerLinkActive="nesto" style="width: 15rem">
     <img [src]="recipe.imagePath" class="card-img-top" [alt]="recipe.name" />
     <div class="card-body">
       <h5 class="card-title">{{ recipe.name }}</h5>

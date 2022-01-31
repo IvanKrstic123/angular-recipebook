@@ -4,7 +4,7 @@
       [src]="recipe.imagePath"
       alt="{{ recipe.name }}"
       class="img-responsive"
-      style="max-width: 500px;"
+      style="max-width: 500px; max-height: 350px;"
     />
   </div>
 </div>
@@ -26,9 +26,9 @@
         Manage Recipe
       </button>
       <div class="dropdown-menu" [ngClass]="{'show':r.isOpen}" appDropdown aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#" (click)="onAddToShoppingList()" style="cursor: pointer;">To Shopping List</a>
-        <a class="dropdown-item" href="#">Edit Recipe</a>
-        <a class="dropdown-item" href="#">Delete Recipe</a>
+        <a class="dropdown-item" style="cursor: pointer;" (click)="onAddToShoppingList()" style="cursor: pointer;">To Shopping List</a>
+        <a class="dropdown-item" style="cursor: pointer;" [routerLink]="['edit']">Edit Recipe</a>
+        <a class="dropdown-item" style="cursor: pointer;">Delete Recipe</a>
       </div>
     </div>
   </div>

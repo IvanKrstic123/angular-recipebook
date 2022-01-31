@@ -10,14 +10,14 @@ export class RecipeService {
   private recipes: Recipe[] = [
     new Recipe(
       "A Test Recipe",
-     "This is simple test", "https://imagesvc.meredithcorp.io/v3/mm/image?q=85&c=sc&poi=face&w=2000&h=1000&url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F43%2F2020%2F07%2F22%2F8000900-2000.jpg",
+     "This is simple test", "https://i.imgur.com/2ZZfFQb.jpg",
     [
       new Ingredient("Meat", 1),
       new Ingredient("French Fries", 20)
     ]),
     new Recipe(
       "Another Test Recipe ", "This is simple test",
-     "https://imagesvc.meredithcorp.io/v3/mm/image?q=85&c=sc&poi=face&w=2000&h=1000&url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F43%2F2020%2F07%2F22%2F8000900-2000.jpg",
+     "http://t1.gstatic.com/licensed-image?q=tbn:ANd9GcRq1mQLx2tcZ4owspN_OxqcHZBIc0f1F6NfiqBYgGnwEkdc3tbUGKETWmBH2PNppLs-dJJAt92vs2I16Eno7ks",
     [
       new Ingredient("Meat", 1),
       new Ingredient("French Fries", 20)
@@ -28,6 +28,10 @@ export class RecipeService {
 
   getRecipes() {
     return this.recipes.slice();
+  }
+
+  getRecipe(id: number) {
+    return this.recipes[id - 1];
   }
 
   addIngredientsToShoppingList(ingredients: Ingredient[]) {
