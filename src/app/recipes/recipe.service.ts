@@ -7,23 +7,24 @@ import { Subject } from "rxjs";
 @Injectable()
 export class RecipeService {
   recipeChanged = new Subject<Recipe[]>();
+  recipes: Recipe[] = [];
 
-  private recipes: Recipe[] = [
-    new Recipe(
-      "A Test Recipe",
-     "This is simple test", "https://i.imgur.com/2ZZfFQb.jpg",
-    [
-      new Ingredient("Meat", 1),
-      new Ingredient("French Fries", 20)
-    ]),
-    new Recipe(
-      "Another Test Recipe ", "This is simple test",
-     "http://t1.gstatic.com/licensed-image?q=tbn:ANd9GcRq1mQLx2tcZ4owspN_OxqcHZBIc0f1F6NfiqBYgGnwEkdc3tbUGKETWmBH2PNppLs-dJJAt92vs2I16Eno7ks",
-    [
-      new Ingredient("Meat", 1),
-      new Ingredient("French Fries", 20)
-    ]),
-  ];
+  // private recipes: Recipe[] = [
+  //   new Recipe(
+  //     "A Test Recipe",
+  //    "This is simple test", "https://i.imgur.com/2ZZfFQb.jpg",
+  //   [
+  //     new Ingredient("Meat", 1),
+  //     new Ingredient("French Fries", 20)
+  //   ]),
+  //   new Recipe(
+  //     "Another Test Recipe ", "This is simple test",
+  //    "http://t1.gstatic.com/licensed-image?q=tbn:ANd9GcRq1mQLx2tcZ4owspN_OxqcHZBIc0f1F6NfiqBYgGnwEkdc3tbUGKETWmBH2PNppLs-dJJAt92vs2I16Eno7ks",
+  //   [
+  //     new Ingredient("Meat", 1),
+  //     new Ingredient("French Fries", 20)
+  //   ]),
+  // ];
 
   constructor(private slService: ShoppingListService) {}
 
@@ -37,6 +38,11 @@ export class RecipeService {
 
   addRecipe(recipe: Recipe) {
     this.recipes.push(recipe);
+    this.recipeChanged.next(this.recipes.slice());
+  }
+
+  setRecipes(recipes: Recipe[]) {
+    this.recipes = recipes;
     this.recipeChanged.next(this.recipes.slice());
   }
 

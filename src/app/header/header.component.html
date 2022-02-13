@@ -17,13 +17,11 @@
       <ul class="navbar-nav ml-auto"  appDropDown #r="appDropDown" >
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" style="cursor: pointer;" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Dropdown
+              Manage
             </a>
             <div class="dropdown-menu" [ngClass]="{'show':r.isOpen}"  aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" style="cursor: pointer;">Save Data</a>
-              <a class="dropdown-item" style="cursor: pointer;">Another action</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" style="cursor: pointer;">Something else here</a>
+              <a class="dropdown-item" style="cursor: pointer;" (click)="onSaveData()">Save Data</a>
+              <a class="dropdown-item" style="cursor: pointer;" (click)="onFetchData()">Fetch Data</a>
             </div>
           </li>
       </ul>
