@@ -8,14 +8,20 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item text-light">
-          <a class="nav-link" [routerLink]="['/recipes']" routerLinkActive="active" >Recipes <span class="sr-only">(current)</span></a>
+          <a class="nav-link" [routerLink]="['/recipes']" routerLinkActive="active" *ngIf="isAuthenticated">Recipes <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/shopping-list']" routerLinkActive="active" >Shopping List</a>
+          <a class="nav-link" [routerLink]="['/shopping-list']" routerLinkActive="active">Shopping List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/auth']" routerLinkActive="active" *ngIf="!isAuthenticated">Authenticate</a>
         </li>
       </ul>
-      <ul class="navbar-nav ml-auto"  appDropDown #r="appDropDown" >
-        <li class="nav-item dropdown">
+      <ul class="navbar-nav ml-auto" *ngIf="isAuthenticated">
+        <li class="nav-item">
+          <a class="nav-link" style="cursor: pointer;" *ngIf="isAuthenticated" (click)="onLogout()">Logout</a>
+        </li>
+        <li class="nav-item dropdown" appDropDown #r="appDropDown">
             <a class="nav-link dropdown-toggle" style="cursor: pointer;" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Manage
             </a>
